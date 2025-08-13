@@ -2,7 +2,7 @@
 
 ## Overview
 
-This guide walks you through setting up a clean VostraCode repository using the git patch-based rebranding strategy. This approach allows you to maintain a private repository while easily pulling updates from the upstream Tabby project.
+This guide walks you through setting up a clean VostraCode repository using the git patch-based rebranding strategy. This approach allows you to maintain a private repository while easily pulling updates from the upstream Continue project.
 
 ## Prerequisites
 
@@ -15,8 +15,8 @@ This guide walks you through setting up a clean VostraCode repository using the 
 ### Step 1: Clone Upstream Repository
 
 ```bash
-# Clone the original Tabby repository
-git clone https://github.com/TabbyML/tabby.git vostracode
+# Clone the original Continue repository
+git clone https://github.com/continuedev/continue.git vostracode
 cd vostracode
 
 # Verify you're on the main branch
@@ -46,8 +46,8 @@ git remote -v
 # Should show:
 # origin    git@github.com:Vostra-AI/vostracode.git (fetch)
 # origin    git@github.com:Vostra-AI/vostracode.git (push)
-# upstream  https://github.com/TabbyML/tabby.git (fetch)
-# upstream  https://github.com/TabbyML/tabby.git (push)
+# upstream  https://github.com/continuedev/continue.git (fetch)
+# upstream  https://github.com/continuedev/continue.git (push)
 ```
 
 ### Step 4: Push to Private Repository
@@ -70,7 +70,7 @@ If you already have a repository with conflicts (like your current `rcn-test` br
 ```bash
 # Create a new clean clone
 cd ..
-git clone https://github.com/TabbyML/tabby.git vostracode-clean
+git clone https://github.com/continuedev/continue.git vostracode-clean
 cd vostracode-clean
 ```
 
@@ -78,8 +78,8 @@ cd vostracode-clean
 
 ```bash
 # Copy any custom files from your old repository
-cp -r ../tabby/claude-docs ./
-cp ../tabby/CLAUDE.md ./
+cp -r ../vostracode-continue/cc ./
+cp ../vostracode-continue/CLAUDE.md ./
 
 # Add any VostraCode-specific code you've written
 # (Avoid copying conflicted files)
@@ -106,37 +106,35 @@ Make the changes specified in `rebrand.md`, organized by component:
 
 ```bash
 # VSCode Extension changes
-# Edit clients/vscode/package.json
-# Edit clients/vscode/src/StatusBarItem.ts
-# Edit clients/vscode/src/logger.ts
-# Edit clients/vscode/src/code-action/*.ts
-# Edit clients/vscode/src/chat/webview.ts
+# Edit extensions/vscode/package.json
+# Edit extensions/vscode/src/commands.ts
+# Edit extensions/vscode/src/extension/VsCodeExtension.ts
 
 # Commit VSCode changes
-git add clients/vscode/
+git add extensions/vscode/
 git commit -m "rebrand: VSCode extension to VostraCode"
 
-# Server branding changes
-# Edit crates/tabby/src/routes/mod.rs (ASCII banner)
-# Edit crates/tabby/src/serve.rs (API documentation)
+# Core branding changes
+# Edit core/control-plane/env.ts (EXTENSION_NAME)
+# Edit core/util/paths.ts (config directories)
 
-# Commit server changes
-git add crates/tabby/src/
-git commit -m "rebrand: Server startup banner and API docs"
+# Commit core changes
+git add core/
+git commit -m "rebrand: Core configuration and paths"
 
-# Agent configuration changes
-# Edit clients/tabby-agent/src/config/configFile.ts
+# GUI changes
+# Edit gui/ components and assets
 
-# Commit agent changes
-git add clients/tabby-agent/
-git commit -m "rebrand: Agent configuration templates"
+# Commit GUI changes
+git add gui/
+git commit -m "rebrand: GUI components and branding"
 
 # Documentation changes
-# Edit website/docusaurus.config.js
+# Edit docs/ and README files
 
 # Commit documentation changes
-git add website/
-git commit -m "rebrand: Documentation website"
+git add docs/ *.md
+git commit -m "rebrand: Documentation and README files"
 ```
 
 ### Step 3: Generate Initial Patches
@@ -169,7 +167,7 @@ git clone git@github.com:Vostra-AI/vostracode.git
 cd vostracode
 
 # Set up upstream remote for pulling updates
-git remote add upstream https://github.com/TabbyML/tabby.git
+git remote add upstream https://github.com/continuedev/continue.git
 
 # Verify setup
 git remote -v
@@ -178,10 +176,10 @@ git remote -v
 ### Branching Strategy
 
 ```bash
-# Main development branch (Tabby branding)
+# Main development branch (Continue branding)
 git checkout main
 
-# Feature branches (also Tabby branding)
+# Feature branches (also Continue branding)
 git checkout -b feature/new-feature
 
 # Release branches (VostraCode branding, created by applying patches)

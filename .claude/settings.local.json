@@ -3,7 +3,8 @@
     "allow": [
       "Bash(git clone:*)",
       "Bash(rm:*)",
-      "Bash(git fetch:*)"
+      "Bash(git fetch:*)",
+      "Bash(git remote add:*)"
     ],
     "deny": []
   }

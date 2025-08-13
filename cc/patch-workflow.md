@@ -6,8 +6,8 @@ This guide explains how to use git patches for VostraCode rebranding, allowing c
 
 ## Core Concept
 
-- **Development:** Work with original Tabby branding to avoid merge conflicts
-- **Release:** Apply patches to transform Tabby → VostraCode branding
+- **Development:** Work with original Continue branding to avoid merge conflicts
+- **Release:** Apply patches to transform Continue → VostraCode branding
 - **Maintenance:** Version-control patches and update them when needed
 
 ## One-Time Setup
@@ -32,16 +32,16 @@ Make separate commits for each component to create focused patches:
 
 ```bash
 # Commit 1: VSCode Extension
-git add clients/vscode/
+git add extensions/vscode/
 git commit -m "rebrand: VSCode extension to VostraCode"
 
-# Commit 2: Server branding
-git add crates/tabby/src/routes/mod.rs crates/tabby/src/serve.rs
-git commit -m "rebrand: Server startup banner and API docs"
+# Commit 2: Core branding
+git add core/
+git commit -m "rebrand: Core configuration and paths"
 
-# Commit 3: Agent configuration
-git add clients/tabby-agent/src/config/
-git commit -m "rebrand: Agent configuration templates"
+# Commit 3: GUI branding
+git add gui/
+git commit -m "rebrand: GUI components and assets"
 
 # Commit 4: Documentation
 git add website/ clients/vscode/src/StatusBarItem.ts clients/vscode/src/logger.ts
@@ -171,9 +171,9 @@ git commit -m "Update rebranding patches for new features"
 After applying patches, verify the following:
 
 ### Visual Verification
-- [ ] Server startup shows VostraCode ASCII banner
 - [ ] VSCode extension displays "VostraCode" in marketplace
-- [ ] Status bar shows "VostraCode" instead of "Tabby"
+- [ ] Sidebar shows "VostraCode" instead of "Continue"
+- [ ] Config directory is ~/.vostracode instead of ~/.continue
 - [ ] All error messages reference VostraCode
 
 ### Functional Verification
@@ -199,8 +199,8 @@ After applying patches, verify the following:
 
 **Build fails after applying patches:**
 - Check for syntax errors in modified files
-- Verify JSON files are valid after string replacements
-- Run linting tools to catch formatting issues
+- Verify package.json files are valid after string replacements
+- Run npm/pnpm install to ensure dependencies are correct
 
 **VSCode extension fails to load:**
 - Check package.json syntax
@@ -209,7 +209,7 @@ After applying patches, verify the following:
 
 ### Rollback Procedure
 
-To remove branding and return to clean Tabby state:
+To remove branding and return to clean Continue state:
 
 ```bash
 # Reset release branch to main
@@ -254,8 +254,9 @@ jobs:
           git apply patches/*.patch
       - name: Build release
         run: |
-          cargo build --release
-          cd clients/vscode && pnpm install && pnpm build
+          cd extensions/vscode
+          npm install
+          npm run package
       - name: Create release artifacts
         run: |
           # Package binaries, extensions, etc.
