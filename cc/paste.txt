@@ -1,0 +1,19 @@
+(node:5824) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `exe --trace-deprecation ...` to show where the warning was created)
+extensionHostProcess.js:202
+Failed to register Continue config.yaml schema, most likely, YAML extension is not installed CodeExpectedError: Unable to write to User Settings because yaml.schemas is not a registered configuration.
+    at e1t.z (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:3605:6793)
+    at e1t.F (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:3605:9281)
+    at e1t.o (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:3605:3874)
+    at Object.factory (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:3605:3774)
+    at Nv.j (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:75710)
+    at vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:75622
+    at new Promise (<anonymous>)
+    at Nv.queue (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:75564)
+    at e1t.writeConfiguration (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:3605:3743)
+    at uhn.Hb (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:3605:42740) {name: 'CodeExpectedError', message: 'Unable to write to User Settings because yaml.schemas is not a registered configuration.', stack: 'CodeExpectedError: Unable to write to User Se…rkbench/workbench.desktop.main.js:3605:42740)'}
+
+extensionHostProcess.js:202
+arg1 =
+CodeExpectedError: Unable to write to User Settings because yaml.schemas is not a registered configuration.\n    at e1t.z (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:3605:6793)\n    at e1t.F (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:3605:9281)\n    at e1t.o (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:3605:3874)\n    at Object.factory (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:3605:3774)\n    at Nv.j (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:75710)\n    at vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:75622\n    at new Promise (<anonymous>)\n    at Nv.queue (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:75564)\n  … …
+f @ /usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:202:6

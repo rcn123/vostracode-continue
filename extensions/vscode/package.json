@@ -615,14 +615,14 @@
       "activitybar": [
         {
           "id": "continue",
-          "title": "Continue",
+          "title": "VostraCode",
           "icon": "media/sidebar-icon.png"
         }
       ],
       "panel": [
         {
           "id": "continueConsole",
-          "title": "Continue Console",
+          "title": "VostraCode Console",
           "icon": "$(window)"
         }
       ]
@@ -632,7 +632,7 @@
         {
           "type": "webview",
           "id": "continue.continueGUIView",
-          "name": "Continue",
+          "name": "VostraCode",
           "icon": "media/sidebar-icon.png",
           "visibility": "visible"
         }
