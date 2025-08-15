@@ -230,6 +230,31 @@ git checkout -b release-v1.0.0
 5. **Backup strategy:** Keep patches in version control
 6. **Automation ready:** Patches can be applied in CI/CD pipelines
 
+## VostraCode Override Pattern
+
+**Standard approach for overriding upstream behavior:**
+
+1. **Create `vc-*.ts` file** with override function
+2. **Patch source function** to call VostraCode override
+3. **Leave all other files unchanged**
+
+**Example:**
+```typescript
+// vc-freetrial.ts
+export function vcHasPassedFTL(): boolean { return false; }
+
+// freeTrial.ts (patch)
+import { vcHasPassedFTL } from "./vc-freetrial";
+export function hasPassedFTL(): boolean {
+  return vcHasPassedFTL(); // VostraCode override
+}
+```
+
+**Benefits:**
+- Single chokepoint for all behavior
+- Forces conflicts to surface when upstream changes
+- Clear separation of VostraCode vs upstream logic
+
 ## Integration with CI/CD
 
 Example GitHub Actions workflow:

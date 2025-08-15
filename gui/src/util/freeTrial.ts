@@ -1,9 +1,10 @@
 import { getLocalStorage, setLocalStorage } from "./localStorage";
+import { vcHasPassedFTL } from "./vc-freetrial";
 
 export const FREE_TRIAL_LIMIT_REQUESTS = 50;
 
 export function hasPassedFTL(): boolean {
-  return (getLocalStorage("ftc") ?? 0) > FREE_TRIAL_LIMIT_REQUESTS;
+  return vcHasPassedFTL(); // VostraCode override
 }
 
 export function incrementFreeTrialCount(): number {

@@ -65,11 +65,11 @@ class OpenAI extends BaseLLM {
   };
 
   protected useOpenAIAdapterFor: (LlmApiRequestType | "*")[] = [
-    "chat",
+    // "chat", // VostraCode: Disabled to debug
     "embed",
     "list",
     "rerank",
-    "streamChat",
+    // "streamChat", // VostraCode: Disabled to debug
     "streamFim",
   ];
 
@@ -340,15 +340,29 @@ class OpenAI extends BaseLLM {
 
     const body = this._convertArgs(options, messages);
 
-    const response = await this.fetch(this._getEndpoint("chat/completions"), {
+    // VostraCode Debug
+    const endpoint = this._getEndpoint("chat/completions");
+    const headers = this._getHeaders();
+    const requestBody = JSON.stringify({
+      ...body,
+      ...this.extraBodyProperties(),
+    });
+    console.log("VostraCode Debug - Request:", {
+      endpoint,
+      headers,
+      bodyPreview: requestBody.substring(0, 500),
+      apiKey: this.apiKey,
+      authHeader: headers.Authorization
+    });
+
+    const response = await this.fetch(endpoint, {
       method: "POST",
-      headers: this._getHeaders(),
-      body: JSON.stringify({
-        ...body,
-        ...this.extraBodyProperties(),
-      }),
+      headers,
+      body: requestBody,
       signal,
     });
+    
+    console.log("VostraCode Debug - Response status:", response.status);
 
     // Handle non-streaming response
     if (body.stream === false) {
