@@ -327,6 +327,19 @@ export const PROVIDER_TOOL_SUPPORT: Record<string, (model: string) => boolean> =
 
       return false;
     },
+    vostracode: (model) => {
+      // VostraCode uses OpenAI-compatible API with tool calling support
+      // Check if the model supports native tools based on model name
+      const modelLower = model.toLowerCase();
+      
+      // Qwen models support native tool calling
+      if (modelLower.includes("qwen")) {
+        return true;
+      }
+      
+      // CodeLlama and other models may need system message tools
+      return false;
+    },
   };
 
 export function isRecommendedAgentModel(modelName: string): boolean {
