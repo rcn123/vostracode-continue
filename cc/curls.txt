@@ -3,7 +3,7 @@
 ## Internal - Chat
 ### Internal - Chat - Tabby
 
-curl -X POST "http://localhost:30080/v1/chat/completions"   -H "Authorization: Bearer auth_d770cd3c0b2f4502b4bc81627e24778c"   -H "Content-Type: application/json"   -d '{
+curl -X POST "http://localhost:30080/v1/chat/completions"   -H "Authorization: Bearer auth_8ab57f77ddd44d769c2a75b75c52ed6d"   -H "Content-Type: application/json"   -d '{
     "model": "qwen2.5-coder-1.5b",
     "messages": [
       {"role": "user", "content": "Write a Python fibonacci function"}
@@ -13,7 +13,7 @@ curl -X POST "http://localhost:30080/v1/chat/completions"   -H "Authorization: B
 
 
 ### Internal - Completions - Tabby
-curl  -H "Authorization: Bearer auth_d770cd3c0b2f4502b4bc81627e24778c"       -H "Content-Type: application/json"       -X POST http://localhost:30080/v1/completions       -d '{
+curl  -H "Authorization: Bearer auth_8ab57f77ddd44d769c2a75b75c52ed6d"       -H "Content-Type: application/json"       -X POST http://localhost:30080/v1/completions       -d '{
         "language": "python",
         "segments": {
           "prefix": "def hello_world():",
@@ -27,7 +27,7 @@ curl  -H "Authorization: Bearer auth_d770cd3c0b2f4502b4bc81627e24778c"       -H 
 ### Internal - vLLM - Chat
 
 
-curl -X POST "http://localhost:30081/v1/chat/completions" -H "Authorization: Bearer auth_d770cd3c0b2f4502b4bc81627e24778c"   -H "Content-Type: application/json"   -d '{
+curl -X POST "http://localhost:30081/v1/chat/completions" -H "Authorization: Bearer auth_8ab57f77ddd44d769c2a75b75c52ed6d"   -H "Content-Type: application/json"   -d '{
     "model": "qwen2.5-coder-1.5b",
     "messages": [
       {"role": "user", "content": "Write a Python fibonacci function"}
@@ -38,7 +38,7 @@ curl -X POST "http://localhost:30081/v1/chat/completions" -H "Authorization: Bea
 
 ### Internal - VLLM - Completions
 
-curl  -H "Authorization: Bearer auth_d770cd3c0b2f4502b4bc81627e24778c"       -H "Content-Type: application/json"       -X POST http://localhost:30081/v1/completions       -d '{
+curl  -H "Authorization: Bearer auth_8ab57f77ddd44d769c2a75b75c52ed6d"       -H "Content-Type: application/json"       -X POST http://localhost:30081/v1/completions       -d '{
         "language": "python",
         "segments": {
           "prefix": "def hello_world():",
@@ -52,7 +52,7 @@ curl  -H "Authorization: Bearer auth_d770cd3c0b2f4502b4bc81627e24778c"       -H 
 ## External - Tabby
 ### External - Tabby - Chat
 
-curl -X POST "http://80.188.223.202:10010/v1/chat/completions"   -H "Authorization: Bearer auth_d770cd3c0b2f4502b4bc81627e24778c"   -H "Content-Type: application/json"   -d '{
+curl -X POST "http://80.188.223.202:10010/v1/chat/completions"   -H "Authorization: Bearer auth_8ab57f77ddd44d769c2a75b75c52ed6d"   -H "Content-Type: application/json"   -d '{
     "model": "qwen2.5-coder-1.5b",
     "messages": [
       {"role": "user", "content": "Write a Python fibonacci function"}
@@ -63,7 +63,7 @@ curl -X POST "http://80.188.223.202:10010/v1/chat/completions"   -H "Authorizati
 
 ### External - Tabby - Completions
 
-curl  -H "Authorization: Bearer auth_d770cd3c0b2f4502b4bc81627e24778c"       -H "Content-Type: application/json"       -X POST http://80.188.223.202:10010/v1/completions       -d '{
+curl  -H "Authorization: Bearer auth_8ab57f77ddd44d769c2a75b75c52ed6d"       -H "Content-Type: application/json"       -X POST http://80.188.223.202:10010/v1/completions       -d '{
         "language": "python",
         "segments": {
           "prefix": "def hello_world():",
@@ -76,7 +76,7 @@ curl  -H "Authorization: Bearer auth_d770cd3c0b2f4502b4bc81627e24778c"       -H 
 	  
 ### External - vLLM - Chat
 
-curl -X POST "http://80.188.223.202:10011/v1/chat/completions"   -H "Authorization: Bearer auth_d770cd3c0b2f4502b4bc81627e24778c"   -H "Content-Type: application/json"   -d '{
+curl -X POST "http://80.188.223.202:11121/v1/chat/completions"   -H "Authorization: Bearer auth_8ab57f77ddd44d769c2a75b75c52ed6d"   -H "Content-Type: application/json"   -d '{
     "model": "qwen2.5-coder-1.5b",
     "messages": [
       {"role": "user", "content": "Write a Python fibonacci function"}
@@ -87,7 +87,7 @@ curl -X POST "http://80.188.223.202:10011/v1/chat/completions"   -H "Authorizati
 
 ### External - vLLM - Completions
 
-curl  -H "Authorization: Bearer auth_d770cd3c0b2f4502b4bc81627e24778c"       -H "Content-Type: application/json"       -X POST http://80.188.223.202:10011/v1/completions       -d '{
+curl  -H "Authorization: Bearer auth_8ab57f77ddd44d769c2a75b75c52ed6d"       -H "Content-Type: application/json"       -X POST http://80.188.223.202:11121/v1/completions       -d '{
         "language": "python",
         "segments": {
           "prefix": "def hello_world():",

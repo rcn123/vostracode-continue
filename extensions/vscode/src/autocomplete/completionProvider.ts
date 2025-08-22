@@ -144,10 +144,21 @@ export class ContinueCompletionProvider
     // 1. Typing (chain doesn't exist)
     // 2. Jumping (chain exists, jump was taken)
     // 3. Accepting (chain exists, jump is not taken)
+    
+    console.log("provideInlineCompletionItems called", {
+      triggerKind: context.triggerKind,
+      isManual: context.triggerKind === vscode.InlineCompletionTriggerKind.Invoke
+    });
 
-    const enableTabAutocomplete =
-      getStatusBarStatus() === StatusBarStatus.Enabled;
+    const statusBarStatus = getStatusBarStatus();
+    const enableTabAutocomplete = statusBarStatus === StatusBarStatus.Enabled;
+    console.log("Autocomplete status check:", {
+      statusBarStatus,
+      enableTabAutocomplete,
+      isCancelled: token.isCancellationRequested
+    });
     if (token.isCancellationRequested || !enableTabAutocomplete) {
+      console.log("Autocomplete blocked - returning null");
       return null;
     }
 
@@ -242,6 +253,10 @@ export class ContinueCompletionProvider
       // handle manual autocompletion trigger
       const wasManuallyTriggered =
         context.triggerKind === vscode.InlineCompletionTriggerKind.Invoke;
+        
+      if (wasManuallyTriggered) {
+        console.log("Manual autocomplete triggered");
+      }
 
       const completionId = uuidv4();
       const filepath = document.uri.toString();
@@ -403,11 +418,22 @@ export class ContinueCompletionProvider
           }
         } else {
           // Handle regular autocomplete request.
+          console.log("Calling completionProvider.provideInlineCompletionItems", {
+            wasManuallyTriggered,
+            filepath,
+            position: pos
+          });
           outcome = await this.completionProvider.provideInlineCompletionItems(
             input,
             signal,
             wasManuallyTriggered,
           );
+          console.log("Autocomplete outcome:", {
+            hasOutcome: !!outcome,
+            hasCompletion: !!(outcome as any)?.completion,
+            completionLength: (outcome as any)?.completion?.length,
+            completionPreview: (outcome as any)?.completion?.substring(0, 50)
+          });
         }
       }
 
@@ -445,7 +471,9 @@ export class ContinueCompletionProvider
         signal,
         outcome,
       );
+      console.log("willDisplay check:", willDisplay);
       if (!willDisplay) {
+        console.log("Completion blocked by willDisplay check");
         return null;
       }
 

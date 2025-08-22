@@ -2,8 +2,8 @@ import { ConfigYaml } from "@continuedev/config-yaml";
 
 // VostraCode configuration constants  
 const VC_MODEL = "Qwen/Qwen2.5-Coder-32B-Instruct";
-const VC_API_BASE = "http://80.188.223.202:10011/v1";
-const VC_API_KEY = "auth_d770cd3c0b2f4502b4bc81627e24778c";
+const VC_API_BASE = "http://80.188.223.202:11121/v1";
+const VC_API_KEY = "auth_8ab57f77ddd44d769c2a75b75c52ed6d";
 
 export const defaultContextProvidersVsCode: NonNullable<
   ConfigYaml["context"]
@@ -29,7 +29,7 @@ export const vcDefaultConfig: ConfigYaml = {
   name: "VostraCode Assistant",
   version: "1.0.0",
   schema: "v1",
-  systemMessage: "You are a coding assistant. When asked to edit or add code, respond ONLY with a minimal unified diff (git-style) for the changed file(s). No explanations, no prose.",
+  // systemMessage: "You are a coding assistant. When asked to edit or add code, respond ONLY with a minimal unified diff (git-style) for the changed file(s). No explanations, no prose.",
   models: [
     {
       name: "VostraCode Chat",
@@ -53,9 +53,9 @@ export const vcDefaultConfig: ConfigYaml = {
   context: defaultContextProvidersVsCode,
 
   // Enable system message tools for Agent/Plan modes (Qwen doesn't have native tool calling)
-  experimental: {
-    onlyUseSystemMessageTools: true,
-  },
+  // experimental: {
+  //  onlyUseSystemMessageTools: true,
+  //},
 
   // Optional: a slash command that ALWAYS forces diff output when you need it.
   // Usage in chat: /patch "add max(a,b) method to Calculator class in Calculator.js"
@@ -72,7 +72,7 @@ export const vcDefaultConfigJetBrains: ConfigYaml = {
   name: "VostraCode Assistant",
   version: "1.0.0", 
   schema: "v1",
-  systemMessage: "You are a coding assistant. When asked to edit or add code, respond ONLY with a minimal unified diff (git-style) for the changed file(s). No explanations, no prose.",
+  // systemMessage: "You are a coding assistant. When asked to edit or add code, respond ONLY with a minimal unified diff (git-style) for the changed file(s). No explanations, no prose.",
   models: [
     {
       name: "VostraCode Chat",
@@ -96,7 +96,7 @@ export const vcDefaultConfigJetBrains: ConfigYaml = {
   context: defaultContextProvidersJetBrains,
 
   // Enable system message tools for Agent/Plan modes (Qwen doesn't have native tool calling)
-  experimental: {
-    onlyUseSystemMessageTools: true,
-  },
+ // experimental: {
+ //   onlyUseSystemMessageTools: true,
+ // },
 };

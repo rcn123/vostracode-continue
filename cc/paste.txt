@@ -1,23 +1,33 @@
-Yep — that’s the catch 👇
-
-Agent/Plan modes in Continue need tool calling.
-
-Two ways to get it:
-
-Native tool calling (OpenAI GPT-4.1, GPT-4-Turbo, etc. → real tools: [] in API).
-
-System-message tools (Continue fakes tool support by stuffing tool descriptions into the system message and parsing back JSON).
-
-Qwen-2.5-Coder doesn’t implement OpenAI’s function-calling schema out of the box. So Continue has no clue it can call tools → you must flip on experimental system-message tools.
-
-That’s exactly why in the config you add:
-
-experimental:
-  onlyUseSystemMessageTools: true
-
-
-or in vc-default.ts:
-
-experimental: {
-  onlyUseSystemMessageTools: true,
-}
+console.ts:137 [Extension Host] provideInlineCompletionItems called {triggerKind: 0, isManual: true} (at console.<anonymous> (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:198:31117))
+console.ts:137 [Extension Host] Autocomplete status check: {statusBarStatus: 1, enableTabAutocomplete: true, isCancelled: false} (at console.<anonymous> (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:198:31117))
+console.ts:137 [Extension Host] Manual autocomplete triggered (at console.<anonymous> (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:198:31117))
+console.ts:137 [Extension Host] Calling completionProvider.provideInlineCompletionItems {wasManuallyTriggered: true, filepath: 'file:///home/minty/Codez/vostracode-continue/manual-testing-sandbox/test.js', position: {…}} (at console.<anonymous> (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:198:31117))
+console.ts:137 [Extension Host] AbortError2: The operation was aborted.
+	at abort2 (/home/minty/Codez/vostracode-continue/extensions/vscode/out/extension.js:96776:21)
+	at AbortSignal.abortAndFinalize (/home/minty/Codez/vostracode-continue/extensions/vscode/out/extension.js:96791:7)
+	at [nodejs.internal.kHybridDispatch] (node:internal/event_target:827:20)
+	at AbortSignal.dispatchEvent (node:internal/event_target:762:26)
+	at runAbort (node:internal/abort_controller:486:10)
+	at abortSignal (node:internal/abort_controller:457:3)
+	at AbortController.abort (node:internal/abort_controller:505:5)
+	at Jh.value (/home/minty/Codez/vostracode-continue/extensions/vscode/out/extension.js:744034:63)
+	at $.C (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2373)
+	at $.fire (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2591)
+	at Yh.cancel (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:5107)
+	at it.cancel (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:5518)
+	at Object.l (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:118463)
+	at C4.N (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:118941)
+	at C4.L (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:117817)
+	at Jh.value (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:116386)
+	at $.C (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2373)
+	at $.fire (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2591)
+	at fo.fire (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:9458)
+	at Jh.value (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:388:8361)
+	at $.C (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2373)
+	at $.fire (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:27:2591)
+	at fo.fire (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:9458)
+	at MessagePortMain.<anonymous> (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:388:6653)
+	at MessagePortMain.emit (node:events:518:28)
+	at MessagePortMain._internalPort.emit (node:electron/js2c/utility_init:2:2949)
+	at Object.callbackTrampoline (node:internal/async_hooks:130:17) (at console.<anonymous> (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:198:31117))
+console.ts:137 [Extension Host] Autocomplete outcome: {hasOutcome: false, hasCompletion: false} (at console.<anonymous> (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:198:31117))

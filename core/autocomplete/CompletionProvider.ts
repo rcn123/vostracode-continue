@@ -228,9 +228,12 @@ export class CompletionProvider {
             helper,
           );
 
+        console.log("🔍 Starting completion stream accumulation");
         for await (const update of completionStream) {
+          console.log("🔍 Accumulating chunk:", JSON.stringify(update));
           completion += update;
         }
+        console.log("🔍 Final accumulated completion:", JSON.stringify(completion));
 
         // Don't postprocess if aborted
         if (token.aborted) {
