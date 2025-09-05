@@ -139,7 +139,8 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - build
-    if: github.event_name != 'workflow_dispatch' || github.event.inputs.publish_build == 'true'
+   #if: github.event_name != 'workflow_dispatch' || github.event.inputs.publish_build == 'true'    replaced with line below
+    if: false  # VostraCode: Never publish to marketplace1
     permissions:
       contents: write
     steps:
