@@ -1,4 +1,5 @@
-import { LLMOptions } from "../../index.js";
+import { ChatCompletionCreateParams } from "openai/resources/index";
+import { ChatMessage, CompletionOptions, LLMOptions } from "../../index.js";
 import OpenAI from "./OpenAI.js";
 
 class VostraCode extends OpenAI {
@@ -28,6 +29,22 @@ class VostraCode extends OpenAI {
       console.log("🔧 VostraCode: Fixing wrong port 10011 → 11121");
       this.apiBase = this.apiBase.replace(':10011', ':11121');
     }
+  }
+
+  protected _convertModelName(model: string): string {
+    if (model === "Qwen/Qwen2.5-Coder-32B-Instruct") {
+      return "qwen2.5-coder-32b";
+    }
+    return model;
+  }
+
+  protected _convertArgs(
+    options: CompletionOptions,
+    messages: ChatMessage[],
+  ): ChatCompletionCreateParams {
+    const finalOptions = super._convertArgs(options, messages);
+    finalOptions.model = this._convertModelName(options.model);
+    return finalOptions;
   }
 
   supportsFim(): boolean {
