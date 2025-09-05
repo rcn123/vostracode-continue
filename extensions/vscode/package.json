@@ -674,10 +674,10 @@
     "// tsc:check": "tsc -p ./ --noEmit",
     "// tsc-watch": "tsc -watch -p ./",
 
-    "tsc:check": "tsnp -p ./ --noEmit",
-    "tsc-watch": "tsnp --watch -p ./ --noEmit",
-    "tsnp:build": "tsnp --noEmit -b", 
-    "tsnp:watch": "tsnp --noEmit -b --watch",
+    "tsc:check": "tsc -p ./ --noEmit",
+    "tsc-watch": "tsc --watch -p ./ --noEmit",
+    "tsnp:build": "tsc --noEmit -b", 
+    "tsnp:watch": "tsc --noEmit -b --watch",
 
 
     "rebuild": "electron-rebuild -v 19.1.8 node-pty",
@@ -694,7 +694,7 @@
     "build-debug:rust": "npm run build:rust --",
     "build-release:rust": "npm run build:rust -- --release",
     "// e2e:compile": "tsc -p ./tsconfig.e2e.json",
-    "e2e:compile": "tsnp -p ./tsconfig.e2e.json --noEmit",
+    "e2e:compile": "tsc -p ./tsconfig.e2e.json --noEmit",
     "e2e:build": "npm --prefix ../../gui run build && npm run package",
     "e2e:create-storage": "mkdir -p ./e2e/storage",
     "e2e:get-chromedriver": "extest get-chromedriver --storage ./e2e/storage --code_version 1.95.0",
