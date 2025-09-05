@@ -18,6 +18,10 @@ runs:
           packages/*/node_modules
         key: ${{ runner.os }}-packages-node-modules-${{ hashFiles('packages/*/package-lock.json') }}
 
+    - name: Install root dependencies
+      shell: bash
+      run: npm install
+      
     - name: Build packages
       shell: bash
       run: node ./scripts/build-packages.js

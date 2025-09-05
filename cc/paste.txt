@@ -1,11 +1,24 @@
-republish-pr-artifacts (Linux)
-failed 1 hour ago in 10s
-Search logs
-1s
-4s
-0s
-3s
-Run echo "🔍 Getting branch name for PR #$PR_NUMBER..."
-🔍 Getting branch name for PR #6723...
-GraphQL: Could not resolve to a PullRequest with the number of 6723. (repository.pullRequest)
-Error: Process completed with exit code 1.
+Run cd core
+
+> @continuedev/core@1.1.0 lint
+> eslint . --ext ts
+
+
+Oops! Something went wrong! :(
+
+ESLint: 8.57.1
+
+Error: Failed to load parser '@typescript-eslint/parser' declared in '.eslintrc.json » ../.eslintrc.shared.json': Cannot find module '@typescript-eslint/parser'
+Require stack:
+- /home/runner/work/vostracode-continue/vostracode-continue/.eslintrc.shared.json
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1212:15)
+    at Function.resolve (node:internal/modules/helpers:193:19)
+    at Object.resolve (/home/runner/work/vostracode-continue/vostracode-continue/core/node_modules/@eslint/eslintrc/dist/eslintrc.cjs:2346:46)
+    at ConfigArrayFactory._loadParser (/home/runner/work/vostracode-continue/vostracode-continue/core/node_modules/@eslint/eslintrc/dist/eslintrc.cjs:3325:39)
+    at ConfigArrayFactory._normalizeObjectConfigDataBody (/home/runner/work/vostracode-continue/vostracode-continue/core/node_modules/@eslint/eslintrc/dist/eslintrc.cjs:3099:43)
+    at _normalizeObjectConfigDataBody.next (<anonymous>)
+    at ConfigArrayFactory._normalizeObjectConfigData (/home/runner/work/vostracode-continue/vostracode-continue/core/node_modules/@eslint/eslintrc/dist/eslintrc.cjs:3040:20)
+    at _normalizeObjectConfigData.next (<anonymous>)
+    at ConfigArrayFactory._normalizeObjectConfigDataBody (/home/runner/work/vostracode-continue/vostracode-continue/core/node_modules/@eslint/eslintrc/dist/eslintrc.cjs:3095:25)
+    at _normalizeObjectConfigDataBody.next (<anonymous>)
+Error: Process completed with exit code 2.
