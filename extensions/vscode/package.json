@@ -691,7 +691,7 @@
     "build-debug:rust": "npm run build:rust --",
     "build-release:rust": "npm run build:rust -- --release",
     "// e2e:compile": "tsc -p ./tsconfig.e2e.json",
-    "e2e:compile": "tsc -p ./tsconfig.e2e.json --noEmit",
+    "e2e:compile": "tsc -p ./tsconfig.e2e.json",
     "e2e:build": "npm --prefix ../../gui run build && npm run package",
     "e2e:create-storage": "mkdir -p ./e2e/storage",
     "e2e:get-chromedriver": "extest get-chromedriver --storage ./e2e/storage --code_version 1.95.0",
