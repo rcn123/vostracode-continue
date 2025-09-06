@@ -3,6 +3,7 @@
 ## Quick Steps
 
 1. **Rebuild the extension:**
+
    ```bash
    cd extensions/vscode
    npm run esbuild
@@ -24,4 +25,5 @@
 cd extensions/vscode
 npm run esbuild-watch  # Auto-rebuilds on file changes
 ```
+
 Then reload VS Code window when you see "esbuild complete" in terminal.

@@ -1,6 +1,6 @@
 /**
  * VostraCode Free Trial Override
- * 
+ *
  * VostraCode does not have trial limitations.
  * This file provides overrides for free trial functionality.
  */

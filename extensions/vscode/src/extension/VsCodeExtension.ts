@@ -255,7 +255,7 @@ export class VsCodeExtension {
     console.log("Tab autocomplete configuration:", {
       extensionName: EXTENSION_NAME,
       enabled,
-      statusToSet: enabled ? "Enabled" : "Disabled"
+      statusToSet: enabled ? "Enabled" : "Disabled",
     });
 
     // Register inline completion provider

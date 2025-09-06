@@ -276,12 +276,14 @@ git branch -D test-release
 ### Common Issues
 
 **Remote already exists:**
+
 ```bash
 git remote remove origin
 git remote add origin git@github.com:Vostra-AI/vostracode.git
 ```
 
 **Permission denied:**
+
 ```bash
 # Check SSH keys
 ssh -T git@github.com
@@ -291,6 +293,7 @@ git remote set-url origin https://token@github.com/Vostra-AI/vostracode.git
 ```
 
 **Patches don't apply:**
+
 ```bash
 # Check if main branch is up to date with your patches
 git log --oneline main..vostra-branding

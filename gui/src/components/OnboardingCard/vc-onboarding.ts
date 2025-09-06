@@ -1,6 +1,6 @@
 /**
  * VostraCode Onboarding Override
- * 
+ *
  * VostraCode comes pre-configured with endpoints and models.
  * Users never need to go through onboarding.
  */

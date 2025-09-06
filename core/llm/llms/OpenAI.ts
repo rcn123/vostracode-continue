@@ -352,7 +352,7 @@ class OpenAI extends BaseLLM {
       headers,
       bodyPreview: requestBody.substring(0, 500),
       apiKey: this.apiKey,
-      authHeader: headers.Authorization
+      authHeader: headers.Authorization,
     });
 
     const response = await this.fetch(endpoint, {
@@ -361,7 +361,7 @@ class OpenAI extends BaseLLM {
       body: requestBody,
       signal,
     });
-    
+
     console.log("VostraCode Debug - Response status:", response.status);
 
     // Handle non-streaming response
