@@ -1,6 +1,6 @@
 import { ConfigYaml } from "@continuedev/config-yaml";
 
-// VostraCode configuration constants  
+// VostraCode configuration constants
 const VC_MODEL = "Qwen/Qwen2.5-Coder-32B-Instruct";
 const VC_API_BASE = "http://80.188.223.202:11121/v1";
 const VC_API_KEY = "auth_8ab57f77ddd44d769c2a75b75c52ed6d";
@@ -47,8 +47,8 @@ export const vcDefaultConfig: ConfigYaml = {
       apiBase: VC_API_BASE,
       apiKey: VC_API_KEY,
       roles: ["autocomplete"],
-      useLegacyCompletionsEndpoint: false
-    }
+      useLegacyCompletionsEndpoint: false,
+    },
   ],
   context: defaultContextProvidersVsCode,
 
@@ -70,7 +70,7 @@ export const vcDefaultConfig: ConfigYaml = {
 
 export const vcDefaultConfigJetBrains: ConfigYaml = {
   name: "VostraCode Assistant",
-  version: "1.0.0", 
+  version: "1.0.0",
   schema: "v1",
   // systemMessage: "You are a coding assistant. When asked to edit or add code, respond ONLY with a minimal unified diff (git-style) for the changed file(s). No explanations, no prose.",
   models: [
@@ -79,13 +79,13 @@ export const vcDefaultConfigJetBrains: ConfigYaml = {
       provider: "vostracode",
       model: VC_MODEL,
       apiBase: VC_API_BASE,
-      apiKey: VC_API_KEY, 
+      apiKey: VC_API_KEY,
       roles: ["chat"],
       useLegacyCompletionsEndpoint: false,
     },
     {
       name: "VostraCode Autocomplete",
-      provider: "vostracode", 
+      provider: "vostracode",
       model: VC_MODEL,
       apiBase: VC_API_BASE,
       apiKey: VC_API_KEY,
@@ -96,7 +96,7 @@ export const vcDefaultConfigJetBrains: ConfigYaml = {
   context: defaultContextProvidersJetBrains,
 
   // Enable system message tools for Agent/Plan modes (Qwen doesn't have native tool calling)
- // experimental: {
- //   onlyUseSystemMessageTools: true,
- // },
+  // experimental: {
+  //   onlyUseSystemMessageTools: true,
+  // },
 };

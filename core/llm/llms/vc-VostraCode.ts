@@ -10,24 +10,24 @@ class VostraCode extends OpenAI {
     contextLength: 32768,
     requestOptions: {
       timeout: 30000,
-    }
+    },
   };
 
   constructor(options: LLMOptions) {
     super(options);
-    
+
     // Fix legacy port 10011 to correct port 11121
     this._ensureCorrectPort();
-    
+
     if (options.model === "AUTODETECT") {
       this._setupCompletionOptions();
     }
   }
 
   private _ensureCorrectPort(): void {
-    if (this.apiBase?.includes(':10011')) {
+    if (this.apiBase?.includes(":10011")) {
       console.log("🔧 VostraCode: Fixing wrong port 10011 → 11121");
-      this.apiBase = this.apiBase.replace(':10011', ':11121');
+      this.apiBase = this.apiBase.replace(":10011", ":11121");
     }
   }
 

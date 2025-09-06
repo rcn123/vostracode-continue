@@ -673,13 +673,10 @@
     "tsc": "tsc -p ./",
     "// tsc:check": "tsc -p ./ --noEmit",
     "// tsc-watch": "tsc -watch -p ./",
-
     "tsc:check": "tsc -p ./ --noEmit",
     "tsc-watch": "tsc --watch -p ./ --noEmit",
-    "tsnp:build": "tsc --noEmit -b", 
+    "tsnp:build": "tsc --noEmit -b",
     "tsnp:watch": "tsc --noEmit -b --watch",
-
-
     "rebuild": "electron-rebuild -v 19.1.8 node-pty",
     "lint": "eslint src --ext ts",
     "lint:fix": "eslint . --ext ts --fix",

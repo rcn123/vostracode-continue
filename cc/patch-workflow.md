@@ -171,12 +171,14 @@ git commit -m "Update rebranding patches for new features"
 After applying patches, verify the following:
 
 ### Visual Verification
+
 - [ ] VSCode extension displays "VostraCode" in marketplace
 - [ ] Sidebar shows "VostraCode" instead of "Continue"
 - [ ] Config directory is ~/.vostracode instead of ~/.continue
 - [ ] All error messages reference VostraCode
 
 ### Functional Verification
+
 - [ ] Server starts without errors
 - [ ] VSCode extension connects to server
 - [ ] Code completion works
@@ -184,6 +186,7 @@ After applying patches, verify the following:
 - [ ] All configuration files are valid
 
 ### Build Verification
+
 - [ ] `cargo build` succeeds
 - [ ] `pnpm build` succeeds in clients/vscode
 - [ ] No linting errors introduced
@@ -193,16 +196,19 @@ After applying patches, verify the following:
 ### Common Issues
 
 **Patch doesn't apply cleanly:**
+
 - Use `git apply --3way` to get conflict markers
 - Resolve conflicts manually
 - Regenerate the patch
 
 **Build fails after applying patches:**
+
 - Check for syntax errors in modified files
 - Verify package.json files are valid after string replacements
 - Run npm/pnpm install to ensure dependencies are correct
 
 **VSCode extension fails to load:**
+
 - Check package.json syntax
 - Verify all command IDs are still valid
 - Test extension loading in development mode
@@ -239,9 +245,12 @@ git checkout -b release-v1.0.0
 3. **Leave all other files unchanged**
 
 **Example:**
+
 ```typescript
 // vc-freetrial.ts
-export function vcHasPassedFTL(): boolean { return false; }
+export function vcHasPassedFTL(): boolean {
+  return false;
+}
 
 // freeTrial.ts (patch)
 import { vcHasPassedFTL } from "./vc-freetrial";
@@ -251,6 +260,7 @@ export function hasPassedFTL(): boolean {
 ```
 
 **Benefits:**
+
 - Single chokepoint for all behavior
 - Forces conflicts to surface when upstream changes
 - Clear separation of VostraCode vs upstream logic
@@ -265,7 +275,7 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'Release version'
+        description: "Release version"
         required: true
 
 jobs:

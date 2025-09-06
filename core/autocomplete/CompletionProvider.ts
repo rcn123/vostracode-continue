@@ -233,7 +233,10 @@ export class CompletionProvider {
           console.log("🔍 Accumulating chunk:", JSON.stringify(update));
           completion += update;
         }
-        console.log("🔍 Final accumulated completion:", JSON.stringify(completion));
+        console.log(
+          "🔍 Final accumulated completion:",
+          JSON.stringify(completion),
+        );
 
         // Don't postprocess if aborted
         if (token.aborted) {

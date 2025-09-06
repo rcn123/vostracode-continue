@@ -60,13 +60,19 @@ export class CompletionStreamer {
         if (token.aborted) {
           return;
         }
-        console.log("🔍 CompletionStreamer raw from LLM:", JSON.stringify(update));
+        console.log(
+          "🔍 CompletionStreamer raw from LLM:",
+          JSON.stringify(update),
+        );
         yield update;
       }
     };
 
     const initialGenerator = generatorWithCancellation();
-    console.log("🔍 CompletionStreamer: Transform enabled?", helper.options.transform);
+    console.log(
+      "🔍 CompletionStreamer: Transform enabled?",
+      helper.options.transform,
+    );
     const transformedGenerator = helper.options.transform
       ? this.streamTransformPipeline.transform(
           initialGenerator,
@@ -80,7 +86,10 @@ export class CompletionStreamer {
       : initialGenerator;
 
     for await (const update of transformedGenerator) {
-      console.log("🔍 CompletionStreamer yielding to provider:", JSON.stringify(update));
+      console.log(
+        "🔍 CompletionStreamer yielding to provider:",
+        JSON.stringify(update),
+      );
       yield update;
     }
   }

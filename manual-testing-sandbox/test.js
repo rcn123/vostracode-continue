@@ -17,7 +17,7 @@ class Calculator {
     this.result *= number;
     return this;
   }
- 
+
   divide(number) {
     if (number === 0) {
       throw new Error("Cannot divide by zero");
@@ -34,7 +34,6 @@ class Calculator {
     this.result = 0;
     return this;
   }
- 
 
   average(numbers) {
     if (!Array.isArray(numbers) || numbers.length === 0) {
@@ -45,4 +44,3 @@ class Calculator {
     return this;
   }
 }
-

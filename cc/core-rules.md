@@ -1,8 +1,7 @@
-
-General and important coding rules. 
+General and important coding rules.
 
 - Write code that is modular and testable, no big bang, no too large functions/methods. Better break them down to testable components/functions
-- No bells and whistles, keep it simple, simple as possible. 
+- No bells and whistles, keep it simple, simple as possible.
 - Do not write code/bonus code that I have not asked for (typical case, fall-back solutions and timeout)
 - After every set of code changes, before returning control to the user, output a concise 1-line commit message that the user can copy and use for git commits.
 - Remove the "🤖 Generated with Claude Code" from all future commit messages

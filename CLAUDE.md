@@ -7,6 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ### Building and Running
 
 **Install dependencies:**
+
 ```bash
 npm install  # Root dependencies
 cd core && npm install  # Core package
@@ -15,6 +16,7 @@ cd ../gui && npm install  # GUI
 ```
 
 **Development:**
+
 ```bash
 # Watch TypeScript across all packages
 npm run tsc:watch
@@ -24,7 +26,7 @@ cd extensions/vscode
 npm run esbuild-watch  # Watch and rebuild
 npm run package  # Create VSIX package
 
-# GUI development  
+# GUI development
 cd gui
 npm run dev  # Start Vite dev server
 
@@ -35,10 +37,11 @@ npm run tsc:check  # Type check without emitting
 ```
 
 **Testing:**
+
 ```bash
 # Core tests
 cd core
-npm test  # Run Jest tests  
+npm test  # Run Jest tests
 npm run vitest  # Run Vitest tests
 
 # VS Code extension tests
@@ -50,6 +53,7 @@ npm run vitest -- path/to/test.vitest.ts
 ```
 
 **Formatting and Linting:**
+
 ```bash
 # Root level
 npm run format  # Format all files
@@ -61,7 +65,7 @@ npm run lint  # Lint TypeScript files
 npm run lint:fix  # Auto-fix lint issues
 
 # VS Code extension
-cd extensions/vscode  
+cd extensions/vscode
 npm run lint
 npm run lint:fix
 ```
@@ -71,6 +75,7 @@ npm run lint:fix
 ### Core Components
 
 **core/** - Shared business logic and abstractions
+
 - `core.ts` - Main Core class that handles all protocol messages from IDE/GUI
 - `protocol/` - Message types and communication contracts between components
 - `llm/` - LLM provider implementations and streaming chat
@@ -81,26 +86,31 @@ npm run lint:fix
 - `config/` - Configuration handling and profile management
 
 **extensions/vscode/** - VS Code extension implementation
+
 - `src/extension.ts` - Extension entry point
 - `src/VsCodeMessenger.ts` - Handles communication with Core
 - `src/VsCodeIde.ts` - IDE interface implementation
 - Protocol messages to Core use `core.invoke()` pattern
 
 **extensions/intellij/** - JetBrains IDE extension (Kotlin)
+
 - `IdeProtocolClient.kt` - Handles IDE-side protocol messages
 
 **gui/** - React-based web interface
+
 - `src/main.tsx` - Application entry point
-- Redux store for state management  
+- Redux store for state management
 - Communicates with Core via webview protocol
 
 ### Communication Flow
 
 1. **IDE ↔ Core**: IDE extensions communicate with Core via protocol messages
+
    - IDE → Core: See `core/protocol/core.ts` for available commands
    - Core → IDE: See `core/protocol/ide.ts` for IDE interface methods
 
 2. **GUI ↔ Core**: Web interface communicates via webview protocol
+
    - Messages pass through IDE extension layer
    - See `core/protocol/passThrough.ts` for forwarded message types
 
